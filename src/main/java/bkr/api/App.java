@@ -1,4 +1,4 @@
-package brk.api;
+package bkr.api;
 
 /**
  * Hello world!

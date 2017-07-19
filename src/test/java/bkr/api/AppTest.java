@@ -1,4 +1,4 @@
-package brk.api;
+package bkr.api;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
