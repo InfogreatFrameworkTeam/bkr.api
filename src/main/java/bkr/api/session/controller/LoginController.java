@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import bkr.api.session.dto.UserDto;
 import bkr.base.api.result.JsonResult;
 import bkr.base.api.result.ResultCode;
 import bkr.base.util.string.StringUtil;
-import bkr.core.session.dto.UserDto;
+import bkr.core.session.entity.User;
 import bkr.core.session.service.LoginService;
 
 /**
@@ -57,14 +58,22 @@ public class LoginController {
         }
 
         // 根据用户名和密码取得注册用户
-        UserDto user = loginService
+        User user = loginService
                 .login(map.get("userName"), map.get("password"));
 
         // 用户不存在的长
         if (user == null) {
             return new JsonResult<UserDto>(ResultCode.FAILURE, "登录失败,用户名密码错误");
         }
+        
+        // 在使用hibernate 最为数据持久层时，我们会映射实体之间的关系，而当我们要访问其中一个实体1时，通常会关联到具有关联关系的实体2，
+        // 这是如果使用Jackson来获取实体1的时，就会无限级联的访问关联的实体2，这样就会造成“无限递归引用的异常”
+        // 有映射关系的表 不能用检索结果作为出力
         // 返回用户信息
-        return new JsonResult<UserDto>(ResultCode.SUCCESS, "登录成功",user);
+        UserDto dto = new UserDto();
+        dto.setUser(user);
+        dto.setRole(user.getRole());
+        dto.setPermissionList(user.getPermissionList());
+        return new JsonResult<UserDto>(ResultCode.SUCCESS, "登录成功",dto);
     }
 }
