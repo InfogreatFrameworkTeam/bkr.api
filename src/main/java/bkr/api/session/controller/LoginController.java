@@ -1,4 +1,4 @@
-package bkr.api.controller.session;
+package bkr.api.session.controller;
 
 import java.util.Map;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import bkr.base.api.result.JsonResult;
 import bkr.base.api.result.ResultCode;
 import bkr.base.util.string.StringUtil;
-import bkr.core.data.dto.UserDto;
-import bkr.core.service.session.LoginService;
+import bkr.core.session.dto.UserDto;
+import bkr.core.session.service.LoginService;
 
 /**
  * 登录登出控制器
