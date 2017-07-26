@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import bkr.base.result.JsonResult;
-import bkr.base.result.ResultCode;
+import bkr.base.api.result.JsonResult;
+import bkr.base.api.result.ResultCode;
 import bkr.base.util.string.StringUtil;
 import bkr.core.data.dto.UserDto;
 import bkr.core.service.session.LoginService;
