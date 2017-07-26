@@ -2,16 +2,16 @@ package bkr.api.session.dto;
 
 import java.util.List;
 
-import bkr.core.session.entity.Permission;
-import bkr.core.session.entity.Role;
-import bkr.core.session.entity.User;
+import bkr.core.user.entity.Permission;
+import bkr.core.user.entity.Role;
+import bkr.core.user.entity.User;
 
 /**
- * 用户DTO
+ * 用户登录结果DTO
  * 
  * @author chengd
  */
-public class UserDto {
+public class UserLoginResDto {
     /** 用户 */
     private User user;
 
