@@ -1,4 +1,5 @@
 # bkr.api 基于 springBoot spring-data-jpa queryDSL
+# 默认数据库H2 用法参见：http://www.h2database.com/html/quickstart.html
 1.将 bkr.api, bkr.base, bkr.core下载到同一目录下
 2.bkr.base 执行 maven.install
 3.bkr.core 执行 maven.install

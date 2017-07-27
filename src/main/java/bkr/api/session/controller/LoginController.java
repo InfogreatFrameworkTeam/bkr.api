@@ -65,7 +65,7 @@ public class LoginController {
         // Controller的入出力原则上使用DTO
         ModelMapper modelMapper = new ModelMapper();
         UserLoginResDto dto = modelMapper.map(user, UserLoginResDto.class);
-        
+
         return new JsonResult<UserLoginResDto>(ResultCode.SUCCESS, "登录成功", dto);
     }
     
