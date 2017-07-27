@@ -1,5 +1,6 @@
 package bkr.api.session.controller;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import bkr.api.session.dto.UserLoginResDto;
 import bkr.api.session.dto.UserLoginReqDto;
+import bkr.api.session.dto.UserLoginResDto;
 import bkr.base.api.result.JsonResult;
 import bkr.base.api.result.ResultCode;
 import bkr.base.util.string.StringUtil;
@@ -61,14 +62,11 @@ public class LoginController {
             return new JsonResult<UserLoginResDto>(ResultCode.FAILURE, "登录失败,用户名密码错误");
         }
 
-        // 在使用hibernate 最为数据持久层时，我们会映射实体之间的关系，而当我们要访问其中一个实体1时，通常会关联到具有关联关系的实体2，
-        // 这是如果使用Jackson来获取实体1的时，就会无限级联的访问关联的实体2，这样就会造成“无限递归引用的异常”
-        // 有映射关系的表 不能用检索结果作为出力
-        // 返回用户信息
-        UserLoginResDto dto = new UserLoginResDto();
-        dto.setUser(user);
-        dto.setRole(user.getRole());
-        dto.setPermissionList(user.getPermissionList());
+        // Controller的入出力原则上使用DTO
+        ModelMapper modelMapper = new ModelMapper();
+        UserLoginResDto dto = modelMapper.map(user, UserLoginResDto.class);
+        
         return new JsonResult<UserLoginResDto>(ResultCode.SUCCESS, "登录成功", dto);
     }
+    
 }

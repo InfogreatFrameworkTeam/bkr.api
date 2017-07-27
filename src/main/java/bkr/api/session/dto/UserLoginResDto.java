@@ -2,44 +2,94 @@ package bkr.api.session.dto;
 
 import java.util.List;
 
-import bkr.core.user.entity.Permission;
-import bkr.core.user.entity.Role;
-import bkr.core.user.entity.User;
-
 /**
  * 用户登录结果DTO
  * 
  * @author chengd
  */
 public class UserLoginResDto {
-    /** 用户 */
-    private User user;
+    /** 用户Id */
+    private Long userId;
+
+    /** 用户名 */
+    private String name;
+
+    /** 邮箱 */
+    private String mail;
+
+    /** 头像 */
+    private String photo;
 
     /** 用户角色 */
-    private Role role;
+    private RoleDto role;
 
     /** 用户权限 */
-    private List<Permission> permissionList;
+    private List<PermissionDto> permissionList;
 
     /**
-     * @return the user
+     * @return the userId
      */
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * @param userId
-     *            the user to set
+     *            the userId to set
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name
+     *            the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the mail
+     */
+    public String getMail() {
+        return mail;
+    }
+
+    /**
+     * @param mail
+     *            the mail to set
+     */
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    /**
+     * @return the photo
+     */
+    public String getPhoto() {
+        return photo;
+    }
+
+    /**
+     * @param photo
+     *            the photo to set
+     */
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     /**
      * @return the role
      */
-    public Role getRole() {
+    public RoleDto getRole() {
         return role;
     }
 
@@ -47,14 +97,14 @@ public class UserLoginResDto {
      * @param role
      *            the role to set
      */
-    public void setRole(Role role) {
+    public void setRole(RoleDto role) {
         this.role = role;
     }
 
     /**
      * @return the permissionList
      */
-    public List<Permission> getPermissionList() {
+    public List<PermissionDto> getPermissionList() {
         return permissionList;
     }
 
@@ -62,7 +112,7 @@ public class UserLoginResDto {
      * @param permissionList
      *            the permissionList to set
      */
-    public void setPermissionList(List<Permission> permissionList) {
+    public void setPermissionList(List<PermissionDto> permissionList) {
         this.permissionList = permissionList;
     }
 
