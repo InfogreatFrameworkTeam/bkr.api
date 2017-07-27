@@ -101,19 +101,18 @@
 		</dependency>
 
 		<dependency>
-			<groupId>bkr.base</groupId>
-			<artifactId>bkr-base</artifactId>
+			<groupId>bkr</groupId>
+			<artifactId>core</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/bkr-base.jar</systemPath>
+			
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>bkr.core</groupId>
 			<artifactId>bkr-core</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
 			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/bkr-core.jar</systemPath>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
