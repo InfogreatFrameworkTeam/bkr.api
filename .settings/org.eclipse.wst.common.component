@@ -6,6 +6,12 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/lib"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="core-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bkr.core/bkr.core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="base-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bkr.base/bkr.base">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/api/target/classes"/>
         <property name="context-root" value="api"/>
     </wb-module>
