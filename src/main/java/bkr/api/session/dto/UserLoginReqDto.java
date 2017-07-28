@@ -1,10 +1,13 @@
 package bkr.api.session.dto;
 
+import lombok.Data;
+
 /**
  * 用户登录入力DTO
  * 
  * @author chengd
  */
+@Data
 public class UserLoginReqDto {
 
     /** 用户名 */
@@ -12,35 +15,4 @@ public class UserLoginReqDto {
 
     /** 密码 */
     private String password;
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name
-     *            the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password
-     *            the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }
